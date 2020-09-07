@@ -7,11 +7,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class MiHttpService {
 
-  constructor( public http: Http ) { }
+  constructor( public http: HttpClient ) { }
 
   public httpGetP ( url: string)
   {
