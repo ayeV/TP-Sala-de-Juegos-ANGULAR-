@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { AuthenticationService } from 'app/servicios/authentication-service';
 
-import {Subscription} from "rxjs";
-import {TimerObservable} from "rxjs/observable/TimerObservable";
+import { Usuario } from '../../clases/usuario';
+import { AlertService } from 'app/servicios/alertService';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,21 +13,17 @@ import {TimerObservable} from "rxjs/observable/TimerObservable";
 })
 export class LoginComponent implements OnInit {
 
-  private subscription: Subscription;
-  usuario = '';
-  clave= '';
-  progreso: number;
-  progresoMensaje="esperando..."; 
-  logeando=true;
-  ProgresoDeAncho:string;
+  public usuario = new Usuario();
+  logeando = true;
+  public errorMessage: string;
 
-  clase="progress-bar progress-bar-info progress-bar-striped ";
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router) {
-      this.progreso=0;
-      this.ProgresoDeAncho="0%";
+    private router: Router,
+    private alertService: AlertService,
+    private authService: AuthenticationService,
+    public dialog: MatDialog) {
 
   }
 
@@ -32,50 +31,48 @@ export class LoginComponent implements OnInit {
   }
 
   Entrar() {
-    if (this.usuario === 'admin' && this.clave === 'admin') {
-      this.router.navigate(['/Principal']);
+    this.alertService.clear();
+
+    if (this.usuario.email != null && this.usuario.clave != null) {
+      this.authService.SignIn(this.usuario.email, this.usuario.clave).then((res) => {
+        this.router.navigate(['/Principal']);
+      }).catch((ex) => {
+        debugger;
+        this.errorMessage = this.ErrorMessageBuilder(ex.code);
+        this.alertService.error(this.errorMessage);
+
+      });
     }
   }
-  MoverBarraDeProgreso() {
-    
-    this.logeando=false;
-    this.clase="progress-bar progress-bar-danger progress-bar-striped active";
-    this.progresoMensaje="NSA spy..."; 
-    let timer = TimerObservable.create(200, 50);
-    this.subscription = timer.subscribe(t => {
-      console.log("inicio");
-      this.progreso=this.progreso+1;
-      this.ProgresoDeAncho=this.progreso+20+"%";
-      switch (this.progreso) {
-        case 15:
-        this.clase="progress-bar progress-bar-warning progress-bar-striped active";
-        this.progresoMensaje="Verificando ADN..."; 
-          break;
-        case 30:
-          this.clase="progress-bar progress-bar-Info progress-bar-striped active";
-          this.progresoMensaje="Adjustando encriptación.."; 
-          break;
-          case 60:
-          this.clase="progress-bar progress-bar-success progress-bar-striped active";
-          this.progresoMensaje="Recompilando Info del dispositivo..";
-          break;
-          case 75:
-          this.clase="progress-bar progress-bar-success progress-bar-striped active";
-          this.progresoMensaje="Recompilando claves facebook, gmail, chats..";
-          break;
-          case 85:
-          this.clase="progress-bar progress-bar-success progress-bar-striped active";
-          this.progresoMensaje="Instalando KeyLogger..";
-          break;
-          
-        case 100:
-          console.log("final");
-          this.subscription.unsubscribe();
-          this.Entrar();
-          break;
-      }     
-    });
-    //this.logeando=true;
+
+  ErrorMessageBuilder(firebaseCode) {
+    switch (firebaseCode) {
+      case "auth/invalid-email":
+        return "El email no es válido.";
+      case "auth/email-already-exists":
+        return "Otro usuario ya está utilizando el email proporcionado.";
+      case "auth/invalid-password":
+        return "Clave incorrecta.";
+        case  "auth/wrong-password":
+          return "Clave incorrecta.";
+      default:
+        return "Parece que algo salio mal, intente de nuevo mas tarde.";
+
+    }
   }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        console.log(`Dialog result: ${result}`);
+      }
+    });
+   
+  }
+
+
+ 
+
 
 }

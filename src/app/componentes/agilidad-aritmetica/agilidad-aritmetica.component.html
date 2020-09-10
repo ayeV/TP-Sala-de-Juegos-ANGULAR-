@@ -1,38 +1,36 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<!--app-menu></app-menu-->
-<!-- index.html -->
+  <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="boxAritmetica">
+      <mat-card-header >
+        <mat-card-title class="mat-card-title">Resuelve la operacion</mat-card-title>
+      </mat-card-header>
+    <mat-form-field appearance="outline" >
+      <input  matInput disabled [(ngModel)]="n1">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input matInput disabled [(ngModel)]="operator">
+    </mat-form-field>
+    <mat-form-field appearance="outline" >
+      <input matInput disabled [(ngModel)]="n2">
+    </mat-form-field>
+    <mat-icon>drag_handle</mat-icon>
+    <mat-form-field  appearance="outline">
+      <input matInput type="number" step="any" placeholder="Ingrese el resultado" [(ngModel)]="nuevoJuego.numeroIngresado">
+    </mat-form-field>
 
+    <div> 
+      <button mat-raised-button class="verificar"  *ngIf="!ocultarVerificar"  (click)="Verificar()">Verificar</button>
+      <button mat-raised-button class="nuevoJuego"(click)="NuevoJuego()"*ngIf="mostrarNuevoJuego" >Nuevo juego</button>
 
-<form name="juego">
-<ul>
-   <li>
-   Primer número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
+    </div>
+   <div>
+    <h3 [hidden]="!nuevoJuego.gano">Usted adivino el número</h3>
+    <h3 [hidden]="nuevoJuego.gano">Usted aún no gano </h3>
+    <p  *ngIf="estaJugando">{{Tiempo}} Segundos restantes</p>
+   </div>
+
+    </mat-card>
+    
+
+  </div>
   
-  </li>
-  <li>
-   Operador: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-    
-  </li>
-  <li>
-   Segundo número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-    
-  </li>
-  <li>
-    Respuesta: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
-     
-   </li>
-  <li>
-    <h2 [hidden]="ocultarVerificar" ><button (click)="verificar()" class="btn btn-success btn-lg">Verificar {{Tiempo}} </button></h2>
-  </li>
-  <li>
-    <h2 [hidden]="!ocultarVerificar"><button  (click)="NuevoJuego()"  class="btn btn-info btn-lg">Nuevo</button></h2>
-  </li>
-  <li>
-    <h2><p><i class="fa fa-spinner fa-spin"></i>Esperando numero...</p></h2>
-
-    <h3 [hidden]="!nuevoJuego.gano">usted adivino el número</h3>
-    <h3 [hidden]="nuevoJuego.gano">usted aún no gano </h3>
-  </li>
-</ul>
-
-</form>
+ 

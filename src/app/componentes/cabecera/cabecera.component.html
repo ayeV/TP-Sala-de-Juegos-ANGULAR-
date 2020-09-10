@@ -1,13 +1,46 @@
-<div class="panel panel-default">
-  <div class="hero-text">
-      <h1 style="font-size:50px">Sala de Juegos</h1>
-      
-      <p>Ayelen Valdez</p>
-      <a href="https://github.com/ayeV"target="_blank">en GitHub <i class="fa fa-github"></i></a>
-      <a  routerLink="/QuienSoy" >Quien Soy? <i class="fa fa-user"></i></a>
-  </div>
-  <ul class="nav navbar-nav navbar-right">
-          <li><a routerLink="/Registro"><span class="glyphicon glyphicon-user"></span>Registrarse</a></li>
-          <li><a  routerLink="/Login"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
-  </ul>
-</div>
+
+
+<mat-toolbar color="primary">
+
+  <button mat-icon-button (click)="toggleSideBar() ">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span>Sala de Juegos</span>
+  <span class="example-spacer" ></span>
+    <a href="https://github.com/ayeV">en Github</a>
+    <i class="fa fa-github" aria-hidden="true"></i>
+
+
+    <a  routerLink="/QuienSoy" >Quien Soy? <i class="fa fa-user"></i></a>
+
+
+</mat-toolbar>
+<mat-drawer-container>
+
+  <mat-sidenav #sidenav class="side-nav-left" position="start" role="directory" [opened]="opened">
+
+    <div class="backdrop" (click)="opened = false"></div>
+    <div class="side-nav-content">
+
+      <mat-action-list>
+        <button mat-list-item>
+          <mat-icon>account_box</mat-icon>
+          <span [routerLink]="['/Login']"  >Ingresar</span>
+        </button>
+        <button mat-list-item>
+          <mat-icon>person_add</mat-icon><span  [routerLink]="['/Registro']" >Registrarse </span>
+        </button>
+        <button mat-list-item>
+          <mat-icon>person</mat-icon><span>Mis datos</span>
+        </button>
+        <button mat-list-item>
+          <mat-icon>settings</mat-icon><span>Configuracion</span>
+        </button>
+        <button mat-list-item>
+          <mat-icon>input</mat-icon><span  [routerLink]="['/Login']">Salir</span>
+        </button>
+      </mat-action-list>
+    </div>
+  </mat-sidenav>
+</mat-drawer-container>

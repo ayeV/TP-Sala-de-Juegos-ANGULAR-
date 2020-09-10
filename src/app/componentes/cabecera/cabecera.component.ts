@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent implements OnInit {
+  opened = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleSideBar() {
+
+    this.opened = !this.opened;
   }
 
 }

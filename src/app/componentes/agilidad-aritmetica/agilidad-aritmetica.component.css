@@ -1,0 +1,46 @@
+.mat-form-field
+{
+    background-color: lavender;
+    align-content: center;
+}
+
+.input
+{
+    text-align: center;
+    font-size: medium;
+}
+
+.boxAritmetica
+{
+    background-color: lavender;
+    text-align: center;
+    font-size: medium;
+    max-width: 400;
+    align-content: center;
+    
+
+}
+
+.verificar
+{
+    background-color: rgb(55, 185, 135);
+    margin-right: 10px;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.nuevoJuego
+{
+    background-color: rgb(82, 135, 235);
+    margin-right: 10px;
+    margin-right: 10px;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+

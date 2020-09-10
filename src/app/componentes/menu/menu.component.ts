@@ -7,6 +7,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  opened = false;
 
   constructor(private route: ActivatedRoute,
     private router: Router) { }
@@ -30,5 +31,10 @@ export class MenuComponent implements OnInit {
         break;
     }
   }
+  toggleSideBar() {
+
+    this.opened = !this.opened;
+  }
+
 
 }

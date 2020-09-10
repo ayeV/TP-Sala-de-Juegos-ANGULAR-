@@ -1,40 +1,83 @@
-<div class="container" >
-    <div class="card">
-      <img class="img-thumbnail"   src="./assets/imagenes/cerebro.png" alt="Avatar" style="width:100%">
-      <h1>Velocidad y agilidad aritmética </h1>
-      <p class="title">Juego de agilidad mental</p>
-      <p>UTN FRA </p>
-  
-      <a href="#"><i class="fa fa-dribbble"></i></a> 
-      <a href="#"><i class="fa fa-twitter"></i></a> 
-      <a href="#"><i class="fa fa-linkedin"></i></a> 
-      <a href="#"><i class="fa fa-facebook"></i></a> 
-      <p>           <button class="button"  (click)="Juego('Agilidad')">Jugar</button></p>
-    
-    </div>
-  
-    <div class="card">
-      <img class="img-thumbnail" src="./assets/imagenes/ppt.jpg" alt="Avatar" style="width:100%">
-      <h1>Piedra Papel o Tijera</h1>
-      <p class="title">Juega contra la máquina</p>
-      <p>UTN FRA </p>
-      
-      <a href="#"><i class="fa fa-dribbble"></i></a> 
-      <a href="#"><i class="fa fa-twitter"></i></a> 
-      <a href="#"><i class="fa fa-linkedin"></i></a> 
-      <a href="#"><i class="fa fa-facebook"></i></a> 
-      <p>           <button class="button"  (click)="Juego('PPT')">Jugar</button></p>
-    </div>
-    <div class="card">
-      <img  class="img-thumbnail"  src="./assets/imagenes/adivina.png" alt="Avatar" style="width:100%">
-      <h1>Adivina el número secreto</h1>
-      <p class="title">Juega de estrategia</p>
-      <p>UTN FRA </p>
-      
-      <a href="#"><i class="fa fa-dribbble"></i></a> 
-      <a href="#"><i class="fa fa-twitter"></i></a> 
-      <a href="#"><i class="fa fa-linkedin"></i></a> 
-      <a href="#"><i class="fa fa-facebook"></i></a> 
-      <p>           <button class="button"  (click)="Juego('Adivina')">Jugar</button></p>
-    </div>
-  </div>
+<mat-grid-list cols="3" rowHeight="10:6">
+
+
+  <mat-grid-tile>
+    <mat-card class="settings-card">
+      <mat-card-header style="align-content: center;">
+        <mat-card-title class="mat-card-title">Velocidad y agilidad aritmética</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="./assets/imagenes/cerebro.png" alt="Photo of a Shiba Inu">
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="Juego('Agilidad')">Jugar</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+
+
+    <mat-card class="settings-card">
+      <mat-card-header style="align-content: center;">
+        <mat-card-title class="mat-card-title">Piedra Papel o Tijera</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="./assets/imagenes/ppt.png">
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="Juego('PPT')">Jugar</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </mat-grid-tile>
+  <mat-grid-tile>
+
+    <mat-card class="settings-card">
+      <mat-card-header style="align-content: center;"> 
+        <mat-card-title class="mat-card-title">Adivina el número secreto</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="./assets/imagenes/adivina.png">
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="Juego('Adivina')">Jugar</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+
+    <mat-card class="settings-card">
+      <mat-card-header style="align-content: center;">
+        <mat-card-title class="mat-card-title">TaTeTi</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="./assets/imagenes/tateti.png">
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="Juego('Tateti')">Jugar</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+
+    <mat-card class="settings-card">
+      <mat-card-header style="align-content: center;">
+        <mat-card-title class="mat-card-title">Memotest</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="./assets/imagenes/memotest.png">
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="Juego('Adivina')">Jugar</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+
+    <mat-card class="settings-card">
+      <mat-card-header>
+        <mat-card-title class="mat-card-title">Juego propio</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="./assets/imagenes/adivina.png">
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="Juego('Adivina')">Jugar</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+
+
+</mat-grid-list>
