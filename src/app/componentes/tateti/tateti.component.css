@@ -1,0 +1,42 @@
+.divRow{
+    display: flex;
+    flex-direction: row;
+}
+
+.container {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    margin: 50px;
+}
+.casilla {
+    display: flex;
+    width: 10rem;
+    height: 10rem;
+    border: 1px solid black;
+    font-size: 70px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    background-color: lavender;
+
+}
+
+.casilla:hover {
+    background-color: #a07be6;
+    z-index: inherit;
+}
+
+
+
+html,
+body {
+ 
+    background-image: none !important;
+
+  background-color:black;
+}

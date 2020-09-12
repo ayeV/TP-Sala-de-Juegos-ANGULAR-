@@ -15,8 +15,9 @@ export class AuthenticationService {
   constructor(
     public afStore: AngularFirestore,
     public ngFireAuth: AngularFireAuth,
-    public router: Router,  
-    public ngZone: NgZone 
+    public router: Router,
+    public ngZone: NgZone,
+
   ) {
     this.ngFireAuth.authState.subscribe(user => {
       if (user) {
@@ -41,13 +42,8 @@ export class AuthenticationService {
   }
 
   // Recover password
-  PasswordRecover(passwordResetEmail) {
-    return this.ngFireAuth.sendPasswordResetEmail(passwordResetEmail)
-    .then(() => {
-      window.alert('Password reset email has been sent, please check your inbox.');
-    }).catch((error) => {
-      window.alert(error)
-    })
+  async PasswordRecover(passwordResetEmail) {
+    return await this.ngFireAuth.sendPasswordResetEmail(passwordResetEmail);
   }
 
   // Returns true when user is looged in
@@ -70,14 +66,14 @@ export class AuthenticationService {
   // Auth providers
   AuthLogin(provider) {
     return this.ngFireAuth.signInWithPopup(provider)
-    .then((result) => {
-       this.ngZone.run(() => {
+      .then((result) => {
+        this.ngZone.run(() => {
           this.router.navigate(['dashboard']);
         })
-      this.SetUserData(result.user);
-    }).catch((error) => {
-      window.alert(error)
-    })
+        this.SetUserData(result.user);
+      }).catch((error) => {
+        window.alert(error)
+      })
   }
 
   // Store user in localStorage
@@ -99,7 +95,7 @@ export class AuthenticationService {
   SignOut() {
     return this.ngFireAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['login']);
+      this.router.navigate(['Login']);
     })
   }
 

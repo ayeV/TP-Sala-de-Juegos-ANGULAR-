@@ -38,7 +38,7 @@
           <mat-icon>settings</mat-icon><span>Configuracion</span>
         </button>
         <button mat-list-item>
-          <mat-icon>input</mat-icon><span  [routerLink]="['/Login']">Salir</span>
+          <mat-icon>input</mat-icon><span  [routerLink]="['/Login']" (click)="salir()">Salir</span>
         </button>
       </mat-action-list>
     </div>

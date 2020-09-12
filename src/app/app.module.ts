@@ -64,6 +64,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AlertaComponent } from './componentes/alerta/alerta.component';
 import { DialogComponent } from './componentes/dialog/dialog.component';
+import { PptComponent } from './componentes/ppt/ppt.component';
+import{MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { TatetiComponent } from './componentes/tateti/tateti.component';
 
 
 @NgModule({
@@ -90,7 +93,9 @@ import { DialogComponent } from './componentes/dialog/dialog.component';
     JugadoresListadoComponent,
     InputJugadoresComponent,
     AlertaComponent,
-    DialogComponent
+    DialogComponent,
+    PptComponent,
+    TatetiComponent
   ],
   imports: [
     BrowserModule,
@@ -126,6 +131,7 @@ import { DialogComponent } from './componentes/dialog/dialog.component';
     AngularFirestoreModule,
     MatExpansionModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     })

@@ -1,0 +1,68 @@
+p {
+    font-family: Lato;
+  }
+  
+  .content{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2em;
+    background-color: lavender;
+    width: 100%;
+
+  }
+  .flex-container{
+    display:flex;
+    width:100%;
+    background-color: lavender;
+
+  }
+  
+  .flex-center{
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+  .content1{
+    
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    background-color: lavender;
+  }
+  
+  .score{
+    margin-top:.5em;
+    margin-left:2em;
+    font-size:1.5em
+  }
+  
+  .content2{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: lavender;
+
+  }
+  
+  .fa{
+    cursor:pointer;
+    font-size:5em;
+  }
+  
+  .selectedWeapon{
+    color: background;
+  }
+
+  html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: none !important;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  background-color: lavender;
+  overflow: hidden;
+}

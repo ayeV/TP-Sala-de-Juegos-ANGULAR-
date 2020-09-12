@@ -1,26 +1,36 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<!--app-menu></app-menu-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div style="text-align:center">
-  <h1>
-    {{nuevoJuego.nombre}}!
-  </h1>
- </div>
-<h2></h2>
-<form name="juego">
+<div class="container" style="background-color: lavender;">
+  <mat-toolbar fxLayout="column" fxLayoutAlign="center center"style="background-color: lavender;" >
+    <span>Adivina el numero!</span>
+  </mat-toolbar >
+  <mat-card fxLayout="column" fxLayoutAlign="center center" class="header_card" >
+      <mat-card-content fxFlex fxFlex.gt-xs="50%">
+        <p class="card-text">Adivina el numero generado automaticamente entre 1 y 100.</p>
+      </mat-card-content>
+  </mat-card>
+  <div fxLayout="row" fxLayoutAlign="center center" gdGap.xs="2px" gdGap.gt-xs="10px" >
+     <label gdColumn="1">Tu numero: </label>
+     <input gdColumn="2" type="number" [value]="guess" (input)="guess = $event.target.value" [(ngModel)]="nuevoJuego.numeroIngresado" />
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" gdGap.xs="2px" gdGap.gt-xs="10px" >
+     <button gdColumn="3"  (click)="verificar()" mat-raised-button color="primary" >Verificar</button>
+     <button gdColumn="4" (click)="generarnumero()" mat-raised-button color="primary">Empezar de nuevo</button>
+  </div>
+  <div>
+    <app-message-card [deviation]="deviation"></app-message-card>
+  </div>
+  <p>No de intentos :
+    <button mat-mini-fab color="primary">{{contador}}</button>
+  </p>
 
-   <label>ingrese numero:  </label>  <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
-    <h1>{{nuevoJuego.numeroIngresado}}  </h1>
- 
-    <h2 [hidden]="ocultarVerificar"><button  *ngIf="nuevoJuego.numeroSecreto!=0" (click)="verificar()" class="btn btn-success btn-lg">Verificar</button></h2>
- 
-    <h2><button *ngIf="nuevoJuego.numeroSecreto==0 " (click)="generarnumero()"  class="btn btn-info btn-lg">Nuevo número secreto</button></h2>
- 
-    <h2><p *ngIf="nuevoJuego.numeroSecreto!=0" ><i class="fa fa-spinner fa-spin"></i>Esperando que ingrese un número</p></h2>
+  <div style="background-color: lavender;">
+    <p>{{Mensajes}}</p>
+  </div>
+</div> 
 
-    <h3 [hidden]="!nuevoJuego.gano">usted adivino el número</h3>
-    <h3 [hidden]="nuevoJuego.gano">usted aún no gano </h3>
-
-
-</form>
-<div id="snackbar">{{Mensajes}}</div>
+<!-- <div>
+  <mat-card fxLayout="column" fxLayoutAlign="start center" class="header_card">
+    <p fxFill *ngIf="deviation<0" class="warning">Tu numero es mas grande.</p>
+    <p fxFill *ngIf="deviation>0" class="warning">Tu numero es mas chico</p>
+    <p fxFill *ngIf="deviation===0" class="success">Acertaste!.</p>
+  </mat-card>
+</div> -->

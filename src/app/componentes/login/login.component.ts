@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
       this.authService.SignIn(this.usuario.email, this.usuario.clave).then((res) => {
         this.router.navigate(['/Principal']);
       }).catch((ex) => {
-        debugger;
         this.errorMessage = this.ErrorMessageBuilder(ex.code);
         this.alertService.error(this.errorMessage);
 
@@ -53,8 +52,8 @@ export class LoginComponent implements OnInit {
         return "Otro usuario ya está utilizando el email proporcionado.";
       case "auth/invalid-password":
         return "Clave incorrecta.";
-        case  "auth/wrong-password":
-          return "Clave incorrecta.";
+      case "auth/wrong-password":
+        return "Clave incorrecta.";
       default:
         return "Parece que algo salio mal, intente de nuevo mas tarde.";
 
@@ -64,15 +63,23 @@ export class LoginComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent);
     dialogRef.afterClosed().subscribe(result => {
-      if(result){
-        console.log(`Dialog result: ${result}`);
+      if (result) {
+        this.authService.PasswordRecover(result).then((res) => { 
+          this.alertService.success("Email enviado.");
+
+        }).catch((ex) => {
+          this.errorMessage = this.ErrorMessageBuilder(ex.code);
+          this.alertService.error(this.errorMessage);
+          console.log(this.errorMessage);
+
+        });
       }
     });
-   
+
   }
 
 
- 
+
 
 
 }
