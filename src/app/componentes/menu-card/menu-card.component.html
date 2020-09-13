@@ -1,9 +1,9 @@
 <body>
   
-<mat-grid-list cols="3" rowHeight="10:6">
+<div fxLayout="row wrap" fxLayoutGap="20px grid" fxLayoutAlign="space-around center">
 
 
-  <mat-grid-tile>
+  <div style="margin-top: 5%;" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="40%">
     <mat-card class="settings-card">
       <mat-card-header style="align-content: center;">
         <mat-card-title class="mat-card-title">Velocidad y agilidad aritmética</mat-card-title>
@@ -13,9 +13,9 @@
         <button mat-raised-button color="primary" (click)="Juego('Agilidad')">Jugar</button>
       </mat-card-actions>
     </mat-card>
-  </mat-grid-tile>
+  </div>
 
-  <mat-grid-tile>
+  <div style="margin-top: 5%;" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="40%">
 
 
     <mat-card class="settings-card">
@@ -28,8 +28,8 @@
       </mat-card-actions>
     </mat-card>
 
-  </mat-grid-tile>
-  <mat-grid-tile>
+  </div>
+  <div style="margin-top: 5%;" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="40%">
 
     <mat-card class="settings-card">
       <mat-card-header style="align-content: center;"> 
@@ -40,9 +40,9 @@
         <button mat-raised-button color="primary" (click)="Juego('Adivina')">Jugar</button>
       </mat-card-actions>
     </mat-card>
-  </mat-grid-tile>
+  </div>
 
-  <mat-grid-tile>
+  <div style="margin-top: 5%;" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="40%">
 
     <mat-card class="settings-card">
       <mat-card-header style="align-content: center;">
@@ -53,9 +53,9 @@
         <button mat-raised-button color="primary" (click)="Juego('Tateti')">Jugar</button>
       </mat-card-actions>
     </mat-card>
-  </mat-grid-tile>
+  </div>
 
-  <mat-grid-tile>
+  <div style="margin-top: 5%;" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="40%">
 
     <mat-card class="settings-card">
       <mat-card-header style="align-content: center;">
@@ -63,24 +63,40 @@
       </mat-card-header>
       <img mat-card-image src="./assets/imagenes/memotest.png">
       <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="Juego('Adivina')">Jugar</button>
+        <button mat-raised-button color="primary" (click)="Juego('Memotest')">Jugar</button>
       </mat-card-actions>
     </mat-card>
-  </mat-grid-tile>
+  </div>
 
-  <mat-grid-tile>
+
+  <div style="margin-top: 5%;" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="40%">
 
     <mat-card class="settings-card">
       <mat-card-header>
-        <mat-card-title class="mat-card-title">Juego propio</mat-card-title>
+        <mat-card-title class="mat-card-title">Anagrama</mat-card-title>
       </mat-card-header>
-      <img mat-card-image src="./assets/imagenes/adivina.png">
+      <img mat-card-image src="./assets/imagenes/anagrama.png">
       <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="Juego('Adivina')">Jugar</button>
+        <button mat-raised-button color="primary" (click)="Juego('Anagrama')">Jugar</button>
       </mat-card-actions>
     </mat-card>
-  </mat-grid-tile>
+  </div>
 
 
-</mat-grid-list>
+
+  <div   style="margin-top: 5%;"  fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="40%">
+
+    <mat-card class="settings-card">
+      <mat-card-header>
+        <mat-card-title class="mat-card-title">Ahorcado</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="./assets/imagenes/ahorcado.png">
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="Juego('Ahorcado')">Jugar</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+
+</div>
 </body>

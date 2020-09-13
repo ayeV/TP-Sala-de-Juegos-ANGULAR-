@@ -16,8 +16,6 @@ import { ErrorComponent } from './componentes/error/error.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
 import { AgilidadAritmeticaComponent } from './componentes/agilidad-aritmetica/agilidad-aritmetica.component';
 import { MenuComponent } from './componentes/menu/menu.component';
-import { AdivinaMasListadoComponent } from './componentes/adivina-mas-listado/adivina-mas-listado.component';
-import { AgilidadMasListadoComponent } from './componentes/agilidad-mas-listado/agilidad-mas-listado.component';
 import { RuteandoModule } from './ruteando/ruteando.module';
 import { ListadoComponent } from './componentes/listado/listado.component';
 
@@ -31,7 +29,6 @@ import { MenuCardComponent } from './componentes/menu-card/menu-card.component';
 import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
 import { AnagramaComponent } from './componentes/anagrama/anagrama.component';
-import { MapaDeGoogleComponent } from './componentes/mapa-de-google/mapa-de-google.component'
 import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 
@@ -67,6 +64,10 @@ import { DialogComponent } from './componentes/dialog/dialog.component';
 import { PptComponent } from './componentes/ppt/ppt.component';
 import{MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
+import { MemotestComponent } from './componentes/memotest/memotest.component';
+import { AhorcadoComponent } from './componentes/ahorcado/ahorcado.component';
+import { CartaComponent } from './componentes/carta/carta.component';
+import { CardService } from './servicios/card-service.service';
 
 
 @NgModule({
@@ -79,8 +80,6 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
     LoginComponent,
     AgilidadAritmeticaComponent,
     MenuComponent,
-    AdivinaMasListadoComponent,
-    AgilidadMasListadoComponent,
     ListadoComponent,
     ListadosComponent,
     JuegosComponent,
@@ -89,13 +88,15 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
     CabeceraComponent,
     QuienSoyComponent,
     AnagramaComponent,
-    MapaDeGoogleComponent,
     JugadoresListadoComponent,
     InputJugadoresComponent,
     AlertaComponent,
     DialogComponent,
     PptComponent,
-    TatetiComponent
+    TatetiComponent,
+    MemotestComponent,
+    AhorcadoComponent,
+    CartaComponent
   ],
   imports: [
     BrowserModule,
@@ -137,7 +138,7 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
     })
     
   ],
-  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
+  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService,CardService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 

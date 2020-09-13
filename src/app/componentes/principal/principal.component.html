@@ -1,75 +1,56 @@
-<app-cabecera></app-cabecera>
-
-<div class="card-columns">
-  <div class="card">  
-    <mat-card class="settings-card">
-      <mat-card-header style="align-content: center;">
-        <mat-card-title class="mat-card-title" routerLink="/Juegos">Juegos</mat-card-title>
-      </mat-card-header>
-      <img mat-card-image src="./assets/imagenes/saladejuegos.png">
-    
-    </mat-card>
   
+  
+  <app-cabecera></app-cabecera>
+
+  <div fxLayout="column"  fxLayoutAlign="space-around center" class="bg">
+  
+  
+    <div  style="display: flex;" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="40%">
+      <mat-card class="settings-card">
+        <mat-card-header >
+          <mat-card-title class="mat-card-title" routerLink="/Juegos">Juegos</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+  
+        <img mat-card-image src="./assets/imagenes/saladejuegos.png">
+      </mat-card-content>
+  
+      </mat-card>
+  
+  
+    </div>
+  
+  
+    <div style=" display: flex;" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="40%">
+  
+      <mat-card class="settings-card">
+        <mat-card-header>
+          <mat-card-title class="mat-card-title" routerLink="/Listado">Listados de resultados</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <img mat-card-image src="./assets/imagenes/listado.png">
+  
+        </mat-card-content>
+     
+      </mat-card>
+  
+    </div>
+  
+  
+    <div style="display: flex;" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="40%">
+  
+      <mat-card class="settings-card">
+        <mat-card-header >
+          <mat-card-title class="mat-card-title" routerLink="/Jugadores">Jugadores</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="./assets/imagenes/clasificacion.png">
+    
+      </mat-card>
+    </div>
   
   </div>
-   
-  
-  <div class="card">  
-  
-      <mat-card class="settings-card">
-        <mat-card-header style="align-content: center;">
-          <mat-card-title class="mat-card-title">Listados de resultados</mat-card-title>
-        </mat-card-header>
-        <img mat-card-image src="./assets/imagenes/listado.png">
-        <mat-card-actions>
-          <button mat-button routerLink="/Listado"></button>
-        </mat-card-actions>
-      </mat-card>
-  
-    </div>
-  
-  
-    <div class="card">  
-  
-      <mat-card class="settings-card">
-        <mat-card-header style="align-content: center;"> 
-          <mat-card-title class="mat-card-title">Jugadores</mat-card-title>
-        </mat-card-header>
-        <img mat-card-image src="./assets/imagenes/jugadores.png">
-        <mat-card-actions>
-          <button mat-button routerLink="/Jugadores">
-          <mat-icon>home</mat-icon>
-          
-          </button>
-          </mat-card-actions>
-      </mat-card>
-    </div>
-
-
-
-</div>
-
-
- 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 

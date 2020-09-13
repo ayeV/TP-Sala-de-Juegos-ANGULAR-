@@ -1,20 +1,49 @@
+html,
+body {
+  height: 100%;
+ 
+}
 
+
+.bg {
+  /* The image used */
+  background-image: url("/assets/imagenes/principal.jpg");
+  
+  /* Full height */
+  height: 100%; 
+  background-color: lightgreen;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.card{
+  background-color: lavender;
+}
 
 .settings-card {
     height: 270px;
     width: 360px;
-    text-align: center;
     background-color: lavender;
-    align-content: center;
-    display: flex;
+  
   
   }
   
   
   .mat-card img {
-      width: 150px;
-      height: 150px;
-      align-content: center;
+   
+      object-fit: cover;
+
+      height: 200px;
+      width: 200px;
+    
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+
   }
    
   
@@ -30,8 +59,8 @@
   }
   
   mat-card-title:hover {
-    color: purple;
-    -webkit-text-stroke: 2px, purple
+    color: rgb(231, 151, 231);
+    -webkit-text-stroke: 2px, rgb(231, 161, 231)
   }
   
   

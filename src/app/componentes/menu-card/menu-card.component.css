@@ -1,13 +1,10 @@
 html,
 body {
-  height: 100%;
   margin: 0;
   padding: 0;
   background-image: url("/assets/imagenes/saladejuegosbk.jpg");
   background-position: center;
-  background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100vh;
   font-family: 'Roboto', sans-serif;
   background-color: purple;
   overflow: hidden;
@@ -20,6 +17,9 @@ body {
   text-align: center;
   background-color: lavender;
   align-content: center;
+  min-height: 270px;
+  min-width: 360px;
+  
 
 }
 
