@@ -1,17 +1,10 @@
-import {Component, Inject} from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
-export interface DialogData {
-  email: string;
-}
-
-
+import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
 })
 export class DialogComponent {
- 
+  public email: string;
 
 }
