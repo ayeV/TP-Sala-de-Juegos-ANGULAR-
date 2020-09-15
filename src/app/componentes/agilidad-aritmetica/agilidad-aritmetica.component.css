@@ -48,17 +48,3 @@
     cursor: pointer;
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-image: url("/assets/imagenes/agilidadbk.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  font-family: 'Roboto', sans-serif;
-  background-color: lavender;
-  overflow: hidden;
-}

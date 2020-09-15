@@ -21,7 +21,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
   public n2: number;
   public operators;
   public operator: string;
-  
+
 
 
   ngOnInit() {
@@ -51,9 +51,9 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
       this.Tiempo--;
       if (this.Tiempo == 0) {
-        
+
         this.Verificar();
-      
+
 
 
       }
@@ -61,7 +61,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
   }
 
-  
+
   Verificar() {
     if (this.n1 != null && this.n2 != null && this.nuevoJuego.numeroIngresado != null) {
       this.estaJugando = false;
@@ -86,24 +86,23 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
 
       }
+      debugger;
 
       this.nuevoJuego.gano = this.nuevoJuego.numeroIngresado == resultado;
-
     }
+
+
     clearInterval(this.repetidor);
     this.mostrarNuevoJuego = true;
-    this.nuevoJuego.gano = false;
     this.Tiempo = 10;
     this.estaJugando = false;
     this.ocultarVerificar = true;
-
-
   }
 
 
   GenerarOperaciones() {
     this.n1 = Math.floor(Math.random() * 50);
-    this.n2 = Math.floor(Math.random() * 50);
+    this.n2 = Math.floor(Math.random() * 10);
 
     var opindex = Math.floor(Math.random() * 3);
     this.operator = this.operators[opindex];

@@ -12,7 +12,20 @@
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Email" [(ngModel)]="usuario.email" name="email" required>
           </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nombre" [(ngModel)]="usuario.nombre" name="nombre" >
+          </mat-form-field>
   
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Apellido" [(ngModel)]="usuario.apellido" name="apellido" >
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Edad" [(ngModel)]="usuario.edad" name="edad" >
+          </mat-form-field>
+
+
           <mat-form-field class="example-full-width">
             <input type="password" matInput placeholder="Clave" [(ngModel)]="usuario.clave" name="clave" required>
           </mat-form-field>

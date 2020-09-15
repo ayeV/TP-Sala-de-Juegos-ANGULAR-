@@ -6,3 +6,11 @@ p {
   max-width: 800px;
   margin: 40px
 }
+
+.row
+{
+  background-color: lavender;
+  display: flex;
+  align-content: center;
+}
+

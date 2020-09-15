@@ -11,7 +11,6 @@ export class AdivinaElNumeroComponent implements OnInit {
 
   nuevoJuego: JuegoAdivina;
   Mensajes:string;
-  contador:number;
   ocultarVerificar:boolean;
  
   constructor() { 
@@ -22,28 +21,25 @@ export class AdivinaElNumeroComponent implements OnInit {
   }
 
   generarnumero() {
-    debugger;
     this.nuevoJuego.numeroIngresado= null;
     this.nuevoJuego.generarnumero();
-    this.contador=0;
   }
 
   verificar()
   {
-    this.contador++;
     this.ocultarVerificar=true;
     console.info("numero Secreto:",this.nuevoJuego.gano);  
     if (this.nuevoJuego.verificar()){
       
       this.nuevoJuego.numeroSecreto=0;
       this.Mensajes = "Acertaste!";
+      this.nuevoJuego.puntaje++;
 
     }
     else
     {
      this.Mensajes =  this.nuevoJuego.retornarMensajes();
     }
-    console.info("Gano:",this.nuevoJuego.gano);  
   }  
 
  

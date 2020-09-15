@@ -69,7 +69,6 @@ import { AhorcadoComponent } from './componentes/ahorcado/ahorcado.component';
 import { CartaComponent } from './componentes/carta/carta.component';
 import { CardService } from './servicios/card-service.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,

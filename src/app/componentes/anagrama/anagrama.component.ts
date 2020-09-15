@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JuegoAnagrama } from 'app/clases/juego-anagrama';
 
 @Component({
   selector: 'app-anagrama',
@@ -7,9 +8,60 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnagramaComponent implements OnInit {
 
-  constructor() { }
+  public anagram: JuegoAnagrama;
+  public message: string;
+  public won: boolean;
+  public attempts = 0;
+
+  constructor() {
+    this.anagram = new JuegoAnagrama();
+    this.won = false;
+  }
 
   ngOnInit() {
+    this.displayWord();
   }
+
+  displayWord() {
+    this.attempts = 0;
+    this.won = false;
+    this.anagram.displayWord();
+    console.log(this.anagram.correctWord);
+  }
+
+  validateWord() {
+    if(this.anagram.answer.length > 0 && this.attempts <= 3)
+    {
+      this.attempts += 1;
+      if (this.anagram.validateWord()) {
+        this.won = true;
+        this.message = "Palabra correcta!"
+        
+      }
+      else
+        this.message = "Palabra Incorrecta!"
+     
+  
+    }
+    if (this.attempts == 3)
+    {        
+      this.message = "Ya intentaste tres veces. Perdiste puntaje!. Clickea en Siguiente si queres continuar."
+      this.won = false;
+      this.anagram.score -= 1;
+      return;
+    }
+  
+  }
+
+  nextWord = function () {
+    this.won = false;
+    this.anagram.answer = '';
+    this.message = '';
+    this.attempts = 0;
+    this.anagram.displayWord();
+
+    console.log(this.anagram.correctWord);
+  }
+
 
 }

@@ -14,15 +14,28 @@
               </mat-panel-title>
             </mat-expansion-panel-header>
             <mat-action-list>
-              <button mat-list-item>
+              <button  (click)="Juego('Agilidad')"  mat-list-item>
                 <span>Velocidad y agilidad aritmética</span>
               </button>
-              <button mat-list-item>
+              <button  (click)="Juego('PPT')"  mat-list-item>
                 <span>Piedra, Papel o Tijera</span>
               </button>
-              <button mat-list-item>
+              <button  (click)="Juego('Adivina')"  mat-list-item>
                 <span>Adivina el número secreto</span>
               </button>
+              <button  (click)="Juego('Memotest')"  mat-list-item>
+                <span>Memotest</span>
+              </button>
+              <button  (click)="Juego('Anagrama')"  mat-list-item>
+                <span>Anagrama</span>
+              </button>
+              <button  (click)="Juego('Tateti')"  mat-list-item>
+                <span>TaTeTi</span>
+              </button>
+              <button  (click)="Juego('Ahorcado')"  mat-list-item>
+                <span>Ahorcado</span>
+              </button>
+              
             </mat-action-list>
           </mat-expansion-panel>
         </mat-accordion>

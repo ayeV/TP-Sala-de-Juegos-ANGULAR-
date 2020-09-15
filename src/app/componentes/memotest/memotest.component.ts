@@ -8,19 +8,21 @@ import { CardService } from 'app/servicios/card-service.service';
   styleUrls: ['./memotest.component.css']
 })
 export class MemotestComponent implements OnInit {
- 
 
- public cards;
- public unsolved;
- public lastClicked = null;
- public revealedCards = 0;
- public cardIndex = 0;
- public waiting;
- public clicks;
- public cargado: boolean;
+
+  public cards;
+  public unsolved;
+  public lastClicked = null;
+  public revealedCards = 0;
+  public cardIndex = 0;
+  public waiting;
+  public clicks;
+  public cargado: boolean;
+  public boardW = new Array(4);
+  public boardH = new Array(4);
 
   constructor(private http: CardService) {
-    
+
   }
 
   ngOnInit(): void {
@@ -36,15 +38,15 @@ export class MemotestComponent implements OnInit {
     this.revealedCards = 0;
     this.cardIndex = 0;
     this.unsolved = Math.floor(5 * 3 / 2);
-    this.http.getImageList().subscribe(data => {      
-      data.map(item => {        
+    this.http.getImageList().subscribe(data => {
+      data.map(item => {
         this.cards.push(new Card(this.cardIndex, item.id));
         this.cards.push(new Card(this.cardIndex + 1, item.id));
-        this.cardIndex +=2;
-      });      
+        this.cardIndex += 2;
+      });
       this.cards = this.shuffle(this.cards);
-      this.cargado  = true;
-    });  
+      this.cargado = true;
+    });
   }
 
 
@@ -67,52 +69,52 @@ export class MemotestComponent implements OnInit {
     return array;
   }
 
-  handleCardClick([id, imageId]) { 
+  handleCardClick([id, imageId]) {
     if (!this.waiting) {
-      this.clicks++;      
+      this.clicks++;
       if (!this.isCardShown(id)) {
         this.showCard(id);
         if (this.lastClicked != null && this.lastClicked === imageId) {
-          this.unsolved--;              
-          this.lastClicked = null;      
-          this.revealedCards = 0;       
-        } else {                 
+          this.unsolved--;
+          this.lastClicked = null;
+          this.revealedCards = 0;
+        } else {
           this.revealedCards++;
           if (this.revealedCards == 2) {
             this.waiting = true;
             setTimeout(() => {
-              this.hideCard(id);          
+              this.hideCard(id);
               this.hideCardByImageId(this.lastClicked);
-              this.revealedCards = 0;       
-              this.lastClicked = null;      
-              this.waiting = false;     
+              this.revealedCards = 0;
+              this.lastClicked = null;
+              this.waiting = false;
             }, 1000);
-          } else {       
-            this.lastClicked = imageId;  
-          }                   
-        }              
-      }   
-    }        
+          } else {
+            this.lastClicked = imageId;
+          }
+        }
+      }
+    }
   }
 
 
 
-    showCard(id: number): void {
-      this.cards.map(card => card.id === id ? card.revealed = true : true)
-    }
-
-    hideCard(id: number): void {
-      this.cards.map(card => card.id === id ? card.revealed = false : true)
-    }
-
-    hideCardByImageId(imageId: string): void {
-      this.cards.map(card => card.imageId === imageId ? card.revealed = false : true)
-    }
-
-    isCardShown(id): boolean {
-      return this.cards.find(card => card.id === id).revealed;
-    }
-
-
-
+  showCard(id: number): void {
+    this.cards.map(card => card.id === id ? card.revealed = true : true)
   }
+
+  hideCard(id: number): void {
+    this.cards.map(card => card.id === id ? card.revealed = false : true)
+  }
+
+  hideCardByImageId(imageId: string): void {
+    this.cards.map(card => card.imageId === imageId ? card.revealed = false : true)
+  }
+
+  isCardShown(id): boolean {
+    return this.cards.find(card => card.id === id).revealed;
+  }
+
+
+
+}

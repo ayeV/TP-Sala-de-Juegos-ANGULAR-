@@ -1,0 +1,38 @@
+.letter {
+	width: 7vw;
+	height:7vw;
+	border-bottom: 3px solid #620a85;
+	background-color: #bc7bf1;
+	border-radius: 10px;
+
+	font-size: 5vw;
+	color: #c720bf;
+	display: inline-block;
+	margin-left: 2vw;
+    
+	opacity:100;
+}
+
+html,
+body {
+  height: 100%;
+  background-image: url("/assets/imagenes/anagrama1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+  .button {
+	
+	background-color:#7849e7;
+	color: #fdfffe;
+	border: 1px solid  #080808;
+    cursor: pointer;
+    text-align: center;
+    align-content: center;
+    width: 6vw;
+    height: 2vw;
+}
+

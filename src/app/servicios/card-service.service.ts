@@ -12,7 +12,8 @@ export class CardService {
   * Get a list of images from picsum based on the board settings
   */
   getImageList() : Observable<any> {
+    debugger;
     const NUMBER_OF_IMAGES = Math.round(5 * 3 / 2);
-    return this.http.get('https://picsum.photos/v2/list?limit=' + NUMBER_OF_IMAGES);
+    return this.http.get('https://picsum.photos/v2/list?limit=8');
   }
 }

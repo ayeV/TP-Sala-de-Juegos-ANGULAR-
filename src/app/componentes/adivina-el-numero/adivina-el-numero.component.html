@@ -1,26 +1,35 @@
-<div class="container" style="background-color: lavender;">
-  <mat-toolbar fxLayout="column" fxLayoutAlign="center center" style="background-color: lavender;">
-    <span>Adivina el numero!</span>
-  </mat-toolbar>
-  <mat-card fxLayout="column" fxLayoutAlign="center center" class="header_card">
-    <mat-card-content fxFlex fxFlex.gt-xs="50%">
-      <p class="card-text">Adivina el numero generado automaticamente entre 1 y 100.</p>
-    </mat-card-content>
-  </mat-card>
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px"  
+  style="background-color: lavender;" >
+
+
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <h2>Adivina el numero!</h2>
+  </div>
+
+
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <p class="card-text">Adivina el numero generado automaticamente entre 1 y 100.</p>
+
+  </div>
+ 
+
+
   <div fxLayout="row" fxLayoutAlign="center center" gdGap.xs="2px" gdGap.gt-xs="10px">
     <label gdColumn="1">Tu numero: </label>
     <input gdColumn="2" type="number" [(ngModel)]="nuevoJuego.numeroIngresado" />
   </div>
+
+
   <div fxLayout="row" fxLayoutAlign="center center" gdGap.xs="2px" gdGap.gt-xs="10px">
     <button gdColumn="3" (click)="verificar()" mat-raised-button color="primary">Verificar</button>
     <button gdColumn="4" (click)="generarnumero()" mat-raised-button color="primary">Empezar de nuevo</button>
   </div>
 
-  <p>No de intentos :
-    <button mat-mini-fab color="primary">{{contador}}</button>
-  </p>
 
-  <div style="background-color: lavender;">
+
+  <div fxLayout="row" fxLayoutAlign="center center" gdGap.xs="2px" gdGap.gt-xs="10px"
+    style="background-color: lavender;">
     <p>{{Mensajes}}</p>
   </div>
+  
 </div>

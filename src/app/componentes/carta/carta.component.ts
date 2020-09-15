@@ -7,13 +7,13 @@ import { ICard,Card } from 'app/clases/card';
   styleUrls: ['./carta.component.css']
 })
 export class CartaComponent implements OnInit {
-  @Input() card: ICard;    
+  @Input() carta: ICard;    
   @Output() clicked = new EventEmitter();
 
   constructor() { }  
 
   cardClick() {        
-    this.clicked.emit([this.card.id, this.card.imageId]);
+    this.clicked.emit([this.carta.id, this.carta.imageId]);
   }
   ngOnInit()
   {

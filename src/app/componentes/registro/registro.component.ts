@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Usuario } from '../../clases/usuario';
 import { AuthenticationService } from 'app/servicios/authentication-service';
 import { AlertService } from 'app/servicios/alertService';
+import { FirestoreService } from 'app/servicios/firestore.service';
 
 @Component({
   selector: 'app-registro',
@@ -18,6 +19,7 @@ export class RegistroComponent implements OnInit {
     private authService: AuthenticationService,
     private alertService: AlertService,
     public router: Router,
+    private dbService: FirestoreService
 
   ) { }
 
@@ -29,8 +31,10 @@ export class RegistroComponent implements OnInit {
 
     if (this.usuario.email != null && this.usuario.clave != null && this.usuario.claveRepetida != null) {
       if (this.usuario.clave == this.usuario.claveRepetida) {
+      
         this.authService.RegisterUser(this.usuario.email, this.usuario.clave).then((res) => {
           this.router.navigate(['Login']);
+          this.dbService.postUser(res.user.uid,this.usuario);
         }).catch((ex) => {
           this.errorMessage = this.ErrorMessageBuilder(ex.code);
           this.alertService.error(ex);

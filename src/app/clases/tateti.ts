@@ -11,8 +11,9 @@ export class Tateti extends Juego {
     public ai = 'X';
     public human = 'O';
     public currentPlayer = this.human;
-
-
+    public score: number;
+    public tie: boolean;
+    public message: string;
     public verificar() {
         return false;
     }
@@ -20,6 +21,24 @@ export class Tateti extends Juego {
     equals3(a, b, c) {
         return a == b && b == c && a != '';
     }
+
+    getWinner() {
+        var winner = this.checkWinner();
+        if (winner == "X") {
+            this.tie = false;
+            this.message = "Perdiste!"
+
+        }
+        else if (winner == 'tie') {
+            this.tie = true;
+            this.score++;
+            this.message = "Es un empate!"
+
+        }
+        return winner;
+
+    }
+
 
 
     checkWinner() {
@@ -57,6 +76,7 @@ export class Tateti extends Juego {
         }
 
         if (winner == null && openSpots == 0) {
+            this.score++;
             return 'tie';
         } else {
             return winner;
@@ -86,6 +106,7 @@ export class Tateti extends Juego {
             }
         }
         this.board[move.i][move.j] = this.ai;
+        this.getWinner()
         this.currentPlayer = this.human;
     }
 

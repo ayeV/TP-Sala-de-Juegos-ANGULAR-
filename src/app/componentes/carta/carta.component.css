@@ -1,10 +1,16 @@
 .card {
-  position: relative;
   height: 140px;
   width: 100px;  
   border: none;
   cursor: pointer;
+  background-color: lavender;
+  margin-top: 1%;
+  position: relative;
+  padding-top: 10px;
 }
+
+
+
 
 .front {
   position:absolute;
@@ -21,7 +27,7 @@
 }
 
 .back {  
-  border: 1px solid #00548b;
+  border: 1px solid #121213;
   height: 140px;
   width: 100px;     
   position:absolute;
@@ -30,4 +36,6 @@
   -moz-transition: opacity 1s ease-in-out;
   -o-transition: opacity 1s ease-in-out;
   transition: opacity 1s ease-in-out;
+  background-color: rgb(137, 36, 231);
+  
 }

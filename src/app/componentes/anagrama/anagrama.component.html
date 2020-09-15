@@ -1,3 +1,44 @@
-<p>
-  anagrama works!
-</p>
+<body>
+  <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <div fxLayoutAlign="center center">
+      <p style="font-size: 1vw; color: darkslateblue;">Se admite un máximo de tres intentos por palabra.
+      
+      </p>
+    </div>
+
+    <div fxLayout="row">
+      <div *ngFor="let letter of anagram.letters">
+        <div fxLayoutAlign="center center" class="letter fadeIn">
+          {{letter}}
+        </div>
+      </div>
+
+    </div>
+
+
+    <div fxLayoutAlign="center center">
+      <input matInput type="text" [(ngModel)]="anagram.answer" focus="anagram.answer.length === 0"
+        placeholder="Ingresa la respuesta" autofocus="autofocus" maxlength="10">
+
+      <button class="button" (click)="validateWord()" [disabled] = "attempts >= 3 && !won">Validar</button>
+
+      <button class="button" (click)="nextWord()">Siguiente</button>
+
+
+    </div>
+
+    <div>
+      <p style="font-size: 1vw; color: darkslateblue;">{{message}}</p>
+
+    </div>
+
+    <div>
+      <p style="font-size: 1vw; color: darkslateblue;"> Número de intentos: {{attempts}}</p>
+
+    </div>
+
+  </div>
+
+
+
+</body>
