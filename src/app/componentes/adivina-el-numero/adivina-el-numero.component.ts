@@ -1,5 +1,6 @@
-
 import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
+import { AuthenticationService } from 'app/servicios/authentication-service';
+import { FirestoreService } from 'app/servicios/firestore.service';
 import { JuegoAdivina } from '../../clases/juego-adivina'
 
 @Component({
@@ -12,12 +13,16 @@ export class AdivinaElNumeroComponent implements OnInit {
   nuevoJuego: JuegoAdivina;
   Mensajes:string;
   ocultarVerificar:boolean;
+  public loggedUser;
+
  
-  constructor() { 
+  constructor(private db: FirestoreService, private auth: AuthenticationService) { 
     this.nuevoJuego = new JuegoAdivina();
     console.info("numero Secreto:",this.nuevoJuego.numeroSecreto);  
     this.ocultarVerificar=false;
     this.generarnumero();
+    this.loggedUser = JSON.parse(localStorage.getItem('user'));
+
   }
 
   generarnumero() {
@@ -33,7 +38,9 @@ export class AdivinaElNumeroComponent implements OnInit {
       
       this.nuevoJuego.numeroSecreto=0;
       this.Mensajes = "Acertaste!";
-      this.nuevoJuego.puntaje++;
+      this.nuevoJuego.puntaje = 10;
+      this.db.postScore(this.loggedUser.uid,'adivina',this.nuevoJuego.puntaje);
+
 
     }
     else

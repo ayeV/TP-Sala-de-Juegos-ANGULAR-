@@ -14,3 +14,17 @@ p {
   align-content: center;
 }
 
+.timer {
+  display: block;
+  margin: 10px auto;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  background-color:lavender;
+  border-radius: 25px;
+  border: 2px solid #321abc;
+  font-size: 40px;
+  text-align: center;
+  color: #999;
+}

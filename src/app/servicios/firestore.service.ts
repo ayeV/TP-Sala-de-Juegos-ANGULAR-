@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Usuario } from 'app/clases/usuario';
+import { firestore } from 'firebase';
 
 
 @Injectable({
@@ -14,7 +15,7 @@ export class FirestoreService {
 
 
 
-  postUser(uid,user: Usuario) {
+  postUser(uid, user: Usuario) {
     debugger;
     this.db.collection("usuarios").doc(uid).set({
       nombre: user.nombre,
@@ -31,11 +32,12 @@ export class FirestoreService {
   }
 
 
-  postScore(uid,game,score)
-  {
+  postScore(uid, game, score) {
     this.db.collection(game).doc(uid).set({
-      puntaje: score
-      
+      puntaje: firestore.FieldValue.increment(score)
+
+    }, {
+      merge: true
     })
       .then(function () {
         console.log("Document successfully written!");

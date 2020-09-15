@@ -10,7 +10,7 @@ export class JuegoAnagrama {
     public letters: [];
     public correctWord: string;
     public time: number;
-    public score: number;
+    public score :number;
 
 
     displayWord = function () {
@@ -37,7 +37,7 @@ export class JuegoAnagrama {
 
     validateWord(): boolean {
         if (this.answer.toUpperCase() === this.correctWord) {
-            this.score += 1;
+            this.score = 10;
             return true;
         }
 

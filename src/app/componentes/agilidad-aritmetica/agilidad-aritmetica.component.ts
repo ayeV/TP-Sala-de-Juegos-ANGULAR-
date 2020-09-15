@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AuthenticationService } from 'app/servicios/authentication-service';
+import { FirestoreService } from 'app/servicios/firestore.service';
 import { JuegoAgilidad } from '../../clases/juego-agilidad'
 
 @Component({
@@ -21,6 +23,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
   public n2: number;
   public operators;
   public operator: string;
+  public loggedUser;
 
 
 
@@ -28,13 +31,14 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
 
   }
-  constructor() {
+  constructor(private db: FirestoreService, private auth: AuthenticationService) {
     this.operators = ['+', '-', '*'];
     this.ocultarVerificar = true;
     this.mostrarNuevoJuego = true;
     this.Tiempo = 10;
     this.nuevoJuego = new JuegoAgilidad();
     this.estaJugando = false;
+    this.loggedUser = JSON.parse(localStorage.getItem('user'));
 
   }
 
@@ -46,7 +50,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.nuevoJuego = new JuegoAgilidad();
     this.GenerarOperaciones();
     this.mostrarNuevoJuego = false;
-
+    this.nuevoJuego.puntaje = 0;
     this.repetidor = setInterval(() => {
 
       this.Tiempo--;
@@ -86,9 +90,15 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
 
       }
-      debugger;
+     
 
       this.nuevoJuego.gano = this.nuevoJuego.numeroIngresado == resultado;
+      if(this.nuevoJuego.gano)
+      {
+        this.nuevoJuego.puntaje = 10;
+        this.db.postScore(this.loggedUser.uid,'agilidad',this.nuevoJuego.puntaje);
+
+      }
     }
 
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JuegoPiedraPapelTijera } from 'app/clases/juego-piedra-papel-tijera';
+import { AuthenticationService } from 'app/servicios/authentication-service';
+import { FirestoreService } from 'app/servicios/firestore.service';
 
 @Component({
   selector: 'app-ppt',
@@ -23,9 +25,13 @@ export class PptComponent implements OnInit {
   //              2 tie
   theResult = 0
   enemySelected = -1;
-  
-  constructor() {
+  public score: number;
+  public loggedUser;
+
+
+  constructor(private db: FirestoreService, private auth: AuthenticationService) {
     this.nuevoJuego = new JuegoPiedraPapelTijera();
+    this.loggedUser = JSON.parse(localStorage.getItem('user'));
 
 
 
@@ -79,6 +85,9 @@ export class PptComponent implements OnInit {
       // YOU WIN
       this.theResult = 0;
       this.scores[0] = this.scores[0] + 1;
+      this.score = 10;
+      this.db.postScore(this.loggedUser.uid,'ppt',this.score);
+
     }
     else {
       // YOU LOSE

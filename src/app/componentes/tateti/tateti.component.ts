@@ -13,7 +13,7 @@ export class TatetiComponent implements OnInit {
   public game = new Tateti();
   public loggedUser;
 
-  constructor(private db:FirestoreService, private auth:AuthenticationService) { 
+  constructor(private db: FirestoreService, private auth: AuthenticationService) {
     this.loggedUser = JSON.parse(localStorage.getItem('user'));
 
   }
@@ -23,34 +23,30 @@ export class TatetiComponent implements OnInit {
 
   makeMove(i, j) {
 
-   if(this.game.board[i][j] == '' && this.game.checkWinner() == null)
-   {
-    this.game.board[i][j] = "O";
-    this.game.getWinner();
+    if (this.game.board[i][j] == '' && this.game.checkWinner() == null) {
+      this.game.board[i][j] = "O";
+      this.game.getWinner();
 
-    if(this.game.checkWinner() == null)
-    {    this.game.bestMove();
+      if (this.game.checkWinner() == null) {
+        this.game.bestMove();
 
+
+      }
 
     }
-
-   }
-   else if(this.game.checkWinner() != null){
-     this.game.getWinner();
-     this.db.postScore(this.loggedUser.uid,'tateti',this.game.score);
-   }
+    else if (this.game.checkWinner() != null) {
+      this.game.getWinner();
+    }
+    if(!this.game.playing && this.game.tie){
+      console.log('te di puntos' + this.game.score);
+      this.db.postScore(this.loggedUser.uid,'tateti',this.game.score);
+    }
 
   }
 
 
   reset() {
-    this.game.board = [
-      ['', '', ''],
-      ['', '', ''],
-      ['', '', '']
-    ];
-    this.game.tie = false;
-    this.game.message = '';
+    this.game.newGame();
   }
 
 }
