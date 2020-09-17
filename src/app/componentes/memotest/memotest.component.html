@@ -1,5 +1,7 @@
-<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px"  
->
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px"  >
+  <div  class="timer">
+    {{time}}
+  </div>
 
   <div *ngIf="cards.length > 0">
     <div *ngFor="let card of boardH; let w = index" class="row">
@@ -11,7 +13,5 @@
   <div>
     <button mat-raised-button color="primary" [disabled]= "isPlaying" (click)="initGame()">Empezar de nuevo</button>
   </div>
-  <div  class="timer">
-    {{time}}
-  </div>
+  
 </div>

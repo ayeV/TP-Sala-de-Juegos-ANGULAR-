@@ -48,6 +48,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.estaJugando = true;
     this.ocultarVerificar = false;
     this.nuevoJuego = new JuegoAgilidad();
+    this.nuevoJuego.gano = false;
     this.GenerarOperaciones();
     this.mostrarNuevoJuego = false;
     this.nuevoJuego.puntaje = 0;
@@ -78,7 +79,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
           break;
 
         case '*':
-          resultado = this.n1 + this.n2;
+          resultado = this.n1 * this.n2;
 
           break;
 
@@ -99,7 +100,10 @@ export class AgilidadAritmeticaComponent implements OnInit {
         this.db.postScore(this.loggedUser.uid,'Agilidad aritmética',this.nuevoJuego.puntaje);
 
       }
+
     }
+
+    this.nuevoJuego.terminado = true;
 
 
     clearInterval(this.repetidor);

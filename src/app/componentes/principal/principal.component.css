@@ -61,8 +61,12 @@ body {
   mat-card-title:hover {
     color: rgb(231, 151, 231);
     -webkit-text-stroke: 2px, rgb(231, 161, 231)
+
   }
   
+  mat-card:hover{
+    cursor: pointer;
+  }
   
   
   
