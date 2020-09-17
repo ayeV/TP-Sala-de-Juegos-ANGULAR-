@@ -96,7 +96,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
       if(this.nuevoJuego.gano)
       {
         this.nuevoJuego.puntaje = 10;
-        this.db.postScore(this.loggedUser.uid,'agilidad',this.nuevoJuego.puntaje);
+        this.db.postScore(this.loggedUser.uid,'Agilidad aritmética',this.nuevoJuego.puntaje);
 
       }
     }

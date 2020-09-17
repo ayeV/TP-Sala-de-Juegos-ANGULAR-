@@ -10,28 +10,28 @@
   
         <mat-card-content>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Email" [(ngModel)]="usuario.email" name="email" required>
+            <input maxlength="30" type="email" matInput placeholder="Email" [(ngModel)]="usuario.email" name="email" required>
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Nombre" [(ngModel)]="usuario.nombre" name="nombre" >
+            <input maxlength="30" type="text" matInput placeholder="Nombre" [(ngModel)]="usuario.nombre" name="nombre" required>
           </mat-form-field>
   
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Apellido" [(ngModel)]="usuario.apellido" name="apellido" >
+            <input maxlength="30" type="text" matInput placeholder="Apellido" [(ngModel)]="usuario.apellido" name="apellido" required >
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Edad" [(ngModel)]="usuario.edad" name="edad" >
+            <input type="number" matInput placeholder="Edad" [(ngModel)]="usuario.edad" name="edad" required>
           </mat-form-field>
 
 
           <mat-form-field class="example-full-width">
-            <input type="password" matInput placeholder="Clave" [(ngModel)]="usuario.clave" name="clave" required>
+            <input maxlength="15" type="password" matInput placeholder="Clave" [(ngModel)]="usuario.clave" name="clave" required>
           </mat-form-field>
   
           <mat-form-field class="example-full-width">
-            <input  type="password" matInput placeholder="Repita la clave" [(ngModel)]="usuario.claveRepetida" name="clave" required>
+            <input  maxlength="15"  type="password" matInput placeholder="Repita la clave" [(ngModel)]="usuario.claveRepetida" name="clave" required>
           </mat-form-field>
          
   

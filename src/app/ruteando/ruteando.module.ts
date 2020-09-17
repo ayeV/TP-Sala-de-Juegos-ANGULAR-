@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-// importo del module principal
 import { RouterModule, Routes } from '@angular/router';
 import { AdivinaElNumeroComponent } from '../componentes/adivina-el-numero/adivina-el-numero.component';
 import { ListadoDeResultadosComponent } from '../componentes/listado-de-resultados/listado-de-resultados.component';
@@ -22,22 +20,25 @@ import { TatetiComponent } from 'app/componentes/tateti/tateti.component';
 import { AnagramaComponent } from 'app/componentes/anagrama/anagrama.component';
 import { MemotestComponent } from 'app/componentes/memotest/memotest.component';
 import { AhorcadoComponent } from 'app/componentes/ahorcado/ahorcado.component';
+import { AuthGuardService } from 'app/servicios/auth-guard.service';
 
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
-  { path: 'Jugadores', component: JugadoresListadoComponent },
-  { path: '', component: PrincipalComponent },
+  { path: 'Jugadores', component: JugadoresListadoComponent, canActivate: [AuthGuardService]},
+  { path: '', component: PrincipalComponent, canActivate: [AuthGuardService] },
   { path: 'Login', component: LoginComponent },
-  { path: 'QuienSoy', component: QuienSoyComponent },
+  { path: 'QuienSoy', component: QuienSoyComponent, canActivate: [AuthGuardService] },
   { path: 'Registro', component: RegistroComponent },
-  { path: 'Principal', component: PrincipalComponent },
-  { path: 'Listado', component: ListadoComponent },
+  { path: 'Principal', component: PrincipalComponent, canActivate: [AuthGuardService] },
+  { path: 'Listado', component: ListadoDeResultadosComponent, canActivate: [AuthGuardService]},
+
 
 
   {
     path: 'Juegos',
     component: JuegosComponent,
+    canActivate: [AuthGuardService],
     children:
       [{ path: '', component: MenuCardComponent },
       { path: 'Adivina', component: AdivinaElNumeroComponent },

@@ -20,7 +20,7 @@
       <input matInput type="text" [(ngModel)]="anagram.answer" focus="anagram.answer.length === 0"
         placeholder="Ingresa la respuesta" autofocus="autofocus" maxlength="10">
 
-      <button class="button" (click)="validateWord()" [disabled] = "attempts >= 3 && !won">Validar</button>
+      <button class="button" (click)="validateWord()" [disabled] = "attempts >= 3 || won">Validar</button>
 
       <button class="button" (click)="nextWord()">Siguiente</button>
 

@@ -39,7 +39,7 @@ export class AdivinaElNumeroComponent implements OnInit {
       this.nuevoJuego.numeroSecreto=0;
       this.Mensajes = "Acertaste!";
       this.nuevoJuego.puntaje = 10;
-      this.db.postScore(this.loggedUser.uid,'adivina',this.nuevoJuego.puntaje);
+      this.db.postScore(this.loggedUser.uid,'Adivina el número',this.nuevoJuego.puntaje);
 
 
     }

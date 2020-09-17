@@ -1,5 +1,3 @@
-
-
 <mat-toolbar color="primary">
 
   <button mat-icon-button (click)="toggleSideBar() ">
@@ -7,12 +5,12 @@
   </button>
 
   <span>Sala de Juegos</span>
-  <span class="example-spacer" ></span>
-    <a href="https://github.com/ayeV">en Github</a>
-    <i class="fa fa-github" aria-hidden="true"></i>
+  <span class="example-spacer"></span>
+  <a href="https://github.com/ayeV">en Github</a>
+  <i class="fa fa-github" aria-hidden="true"></i>
 
 
-    <a  routerLink="/QuienSoy" >Quien Soy? <i class="fa fa-user"></i></a>
+  <a routerLink="/QuienSoy">Quien Soy? <i class="fa fa-user"></i></a>
 
 
 </mat-toolbar>
@@ -24,21 +22,12 @@
     <div class="side-nav-content">
 
       <mat-action-list>
-        <button [routerLink]="['/Login']"  mat-list-item>
-          <mat-icon>account_box</mat-icon>
-          <span>Ingresar</span>
-        </button>
-        <button mat-list-item [routerLink]="['/Registro']">
-          <mat-icon>person_add</mat-icon><span   >Registrarse </span>
-        </button>
         <button mat-list-item>
           <mat-icon>person</mat-icon><span>Mis datos</span>
         </button>
-        <button mat-list-item>
-          <mat-icon>settings</mat-icon><span>Configuracion</span>
-        </button>
+
         <button mat-list-item [routerLink]="['/Login']" (click)="salir()">
-          <mat-icon>input</mat-icon><span  >Salir</span>
+          <mat-icon>input</mat-icon><span>Salir</span>
         </button>
       </mat-action-list>
     </div>

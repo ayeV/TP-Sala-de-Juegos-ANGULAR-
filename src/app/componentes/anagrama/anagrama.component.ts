@@ -42,7 +42,7 @@ export class AnagramaComponent implements OnInit {
       if (this.anagram.validateWord()) {
         this.won = true;
         this.message = "Palabra correcta!";
-        this.db.postScore(this.loggedUser.uid,'anagrama',this.anagram.score);
+        this.db.postScore(this.loggedUser.uid,'Anagrama',this.anagram.score);
 
 
       }

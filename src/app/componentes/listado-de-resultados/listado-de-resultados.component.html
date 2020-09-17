@@ -1,25 +1,34 @@
-<!--div *ngFor="let juego of listado">
+<app-menu></app-menu>
+<div  class="divTable" *ngIf="!cargando">
+  <p-table #dt [globalFilterFields]="['jugador','juego']"  [columns]="cols" [value]="puntajes" >
+    <ng-template pTemplate="caption"  >
+      <div class="table-header">
+          Lista de resultados
+          <span class="p-input-icon-right">
+              <i class="pi pi-search"></i>
+              <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"  />
+          </span>
+      </div>
+  </ng-template>
+    <ng-template pTemplate="header" let-columns style="background-color: lavender;">
+        <tr [ngClass]="{'cabecera': true}" style="background-color: lavender;">
+            <th  style="background-color:  lavender; color: black;" *ngFor="let col of columns" [pSortableColumn]="col.field">{{col.header}}<p-sortIcon [field]="col.field">
 
-<p> {{juego.nombre}} </p>
-<p> {{juego.jugador}} </p>
+            </p-sortIcon>
+          </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-puntaje let-columns="columns">
+        <tr [ngClass]="{'fila': true}">
+          <td *ngFor="let col of columns" >
+            {{puntaje[col.field]}}
+          </td>
+        </tr>
+    </ng-template>
+</p-table>
+</div>
 
-</div-->
+ 
 
-<table class="table table-condensed">
-    <thead>
-      <tr>
-        <th>Juego</th>
-        <th>Jugador</th>
-        <th>Resultado</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let juego of listado">
-        <td>{{juego.nombre}} </td>
-        <td>{{juego.jugador}} </td> 
-        <td *ngIf="juego.gano">Gano </td>   
-        <td *ngIf="!juego.gano">Perdio</td>     
-      </tr>
-     
-    </tbody>
-  </table>
+  
+ 

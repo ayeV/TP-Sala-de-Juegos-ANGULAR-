@@ -8,7 +8,7 @@ import { firestore } from 'firebase';
   providedIn: 'root'
 })
 export class FirestoreService {
-
+  
 
   constructor(private db: AngularFirestore) { }
 
@@ -16,7 +16,6 @@ export class FirestoreService {
 
 
   postUser(uid, user: Usuario) {
-    debugger;
     this.db.collection("usuarios").doc(uid).set({
       nombre: user.nombre,
       apellido: user.apellido,
@@ -33,10 +32,11 @@ export class FirestoreService {
 
 
   postScore(uid, game, score) {
-    this.db.collection(game).doc(uid).set({
-      puntaje: firestore.FieldValue.increment(score)
+    let json = {};
+    json[game] = firestore.FieldValue.increment(score)
 
-    }, {
+    this.db.collection('puntajes').doc(uid).set(
+      json, {
       merge: true
     })
       .then(function () {
@@ -48,6 +48,22 @@ export class FirestoreService {
 
 
   }
+
+  
+  getUsuarios() {
+   return this.db.collection("usuarios").get();
+
+  }
+
+  getPuntajes() {
+   return this.db.collection("puntajes").get();
+
+  }
+
+
+
+
+
 
 }
 

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { JugadoresService } from '../../servicios/jugadores.service';
-import {Jugador} from '../../clases/jugador';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FirestoreService } from 'app/servicios/firestore.service';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-jugadores-listado',
@@ -8,51 +8,44 @@ import {Jugador} from '../../clases/jugador';
   styleUrls: ['./jugadores-listado.component.css']
 })
 export class JugadoresListadoComponent implements OnInit {
+  @ViewChild('dt') table: Table;
 
-  public listado:any
-  //miJugadoresServicio:JugadoresService
-  
-    constructor(serviceJugadores:JugadoresService) {
-      this.listado =  [
-        {usuario: 'Juan Perez',gano: true },
-        {usuario: 'Juan Perez',gano: true },
-        {usuario: 'Juan Perez',gano: true },
-        {usuario: 'Juan Perez',gano: true }
-  
-      ];
-     
-    }
-    
+  public displayedColumns: string[] = ['jugador', 'email', 'edad'];
+  public cols: any[];
+  public listado;
+  public cargando = true;
+  public contador = 0;
+
+  constructor(private db: FirestoreService) {
+
+  }
+
 
 
   ngOnInit() {
-  
-    
+    this.getData();
+    this.cols = [{ field: 'jugador', header: 'Jugador'},{ field: 'email', header: 'Email'}, { field: 'edad', header: 'Edad'}]
+
+  }
+
+  getData() {
+    let usuarios = [];
+    this.db.getUsuarios().subscribe(x => {
+      x.forEach(item => {
+        usuarios.push ({
+          jugador: item.data().nombre + ' ' + item.data().apellido,
+          email: item.data().email,
+          edad: item.data().edad
+        });
+      });
+      this.cargando = false;
+      this.listado = usuarios;
+      console.log(this.listado);
+
+
+    });
   }
 
 
-
-  TraerTodos(){
-/*     //alert("totos");
-   // this.miJugadoresServicio.traertodos('jugadores/','todos').then(data=>{
-      //console.info("jugadores listado",(data));
-      //this.listado= data;
-
-    }) */
-  }
-  TraerGanadores(){
-/*    // this.miJugadoresServicio.traertodos('jugadores/','ganadores').then(data=>{
-      //console.info("jugadores listado",(data));
-   //   this.listado= data;
-
-    }) */
-  }
-  TraerPerdedores(){
-/*    // this.miJugadoresServicio.traertodos('jugadores/','perdedores').then(data=>{
-      //console.info("jugadores listado",(data));
-     // this.listado= data;
-
-    }) */
-  }
 
 }

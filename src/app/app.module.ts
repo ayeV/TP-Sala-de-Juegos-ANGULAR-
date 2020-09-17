@@ -18,6 +18,8 @@ import { AgilidadAritmeticaComponent } from './componentes/agilidad-aritmetica/a
 import { MenuComponent } from './componentes/menu/menu.component';
 import { RuteandoModule } from './ruteando/ruteando.module';
 import { ListadoComponent } from './componentes/listado/listado.component';
+import {TableModule} from 'primeng/table';
+import {PaginatorModule} from 'primeng/paginator';
 
 import { JugadoresListadoComponent } from './componentes/jugadores-listado/jugadores-listado.component';
 
@@ -68,6 +70,7 @@ import { MemotestComponent } from './componentes/memotest/memotest.component';
 import { AhorcadoComponent } from './componentes/ahorcado/ahorcado.component';
 import { CartaComponent } from './componentes/carta/carta.component';
 import { CardService } from './servicios/card-service.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -118,7 +121,6 @@ import { CardService } from './servicios/card-service.service';
     MatRadioModule,
     MatChipsModule,
     MatTooltipModule,
-    MatTableModule,
     HttpClientModule,
     MatCheckboxModule,
     MatCardModule,
@@ -134,7 +136,10 @@ import { CardService } from './servicios/card-service.service';
     MatProgressSpinnerModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
-    })
+    }),
+    NgbModule,
+    TableModule,
+    PaginatorModule
     
   ],
   providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService,CardService],

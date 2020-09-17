@@ -62,13 +62,13 @@ export class MemotestComponent implements OnInit {
       this.cards = this.shuffle(this.cards);
       this.cargado = true;
     });
-    this.time = 40;
+    this.time = 50;
     this.repetidor = setInterval(() => {
 
       if (this.unsolved == 0) {
         this.isPlaying = false;
         this.score = 10;
-        this.db.postScore(this.loggedUser.uid,'memotest',this.score);
+        this.db.postScore(this.loggedUser.uid,'Memotest',this.score);
         clearInterval(this.repetidor);
         console.log('ganaste');
       }

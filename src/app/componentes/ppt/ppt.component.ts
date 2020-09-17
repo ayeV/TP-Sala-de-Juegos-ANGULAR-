@@ -86,7 +86,7 @@ export class PptComponent implements OnInit {
       this.theResult = 0;
       this.scores[0] = this.scores[0] + 1;
       this.score = 10;
-      this.db.postScore(this.loggedUser.uid,'ppt',this.score);
+      this.db.postScore(this.loggedUser.uid,'Piedra papel o tijera',this.score);
 
     }
     else {

@@ -39,7 +39,7 @@ export class TatetiComponent implements OnInit {
     }
     if(!this.game.playing && this.game.tie){
       console.log('te di puntos' + this.game.score);
-      this.db.postScore(this.loggedUser.uid,'tateti',this.game.score);
+      this.db.postScore(this.loggedUser.uid,'Tateti',this.game.score);
     }
 
   }
