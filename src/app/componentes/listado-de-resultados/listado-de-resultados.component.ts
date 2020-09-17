@@ -15,7 +15,7 @@ export class ListadoDeResultadosComponent implements OnInit {
   public puntajes;
   public cargando = true;
   public contador = 0;
-  @ViewChild('dt') table: Table;
+  @ViewChild(Table) table: Table;
 
   public displayedColumns: string[] = ['jugador', 'juego', 'puntaje'];
   public cols: any[];
@@ -49,6 +49,7 @@ export class ListadoDeResultadosComponent implements OnInit {
             });
             this.contador++;
           });
+          this.table.reset();
         });
       });
 

@@ -19,6 +19,10 @@ export class AuthenticationService {
     public ngZone: NgZone,
 
   ) {
+    this.getDataFromFirebase();
+  }
+
+  getDataFromFirebase(){
     this.ngFireAuth.authState.subscribe(user => {
       if (user) {
         this.userData = user;
@@ -29,6 +33,10 @@ export class AuthenticationService {
         JSON.parse(localStorage.getItem('user'));
       }
     })
+  }
+
+  get auth(){
+    return this.ngFireAuth;
   }
 
   // Login in with email/password
@@ -48,6 +56,7 @@ export class AuthenticationService {
 
   // Returns true when user is looged in
   get isLoggedIn(): boolean {
+    this.getDataFromFirebase();
     const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null) ? true : false;
   }

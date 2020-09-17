@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
 
     if (this.usuario.email != null && this.usuario.clave != null) {
       this.authService.SignIn(this.usuario.email, this.usuario.clave).then((res) => {
+        this.authService.getDataFromFirebase();
         this.router.navigate(['/Principal']);
       }).catch((ex) => {
         this.errorMessage = this.ErrorMessageBuilder(ex.code);

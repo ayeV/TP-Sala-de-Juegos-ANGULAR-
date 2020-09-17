@@ -1,12 +1,12 @@
 <app-menu></app-menu>
 <div  class="divTable" *ngIf="!cargando">
-  <p-table #dt [globalFilterFields]="['jugador','juego']"  [columns]="cols" [value]="puntajes" >
+  <p-table [globalFilterFields]="['jugador','juego']"  [columns]="cols" [value]="puntajes" [paginator]="true" [rows]="10" >
     <ng-template pTemplate="caption"  >
       <div class="table-header">
           Lista de resultados
           <span class="p-input-icon-right">
               <i class="pi pi-search"></i>
-              <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"  />
+              <input pInputText type="text" (input)="table.filterGlobal($event.target.value, 'contains')"  />
           </span>
       </div>
   </ng-template>
