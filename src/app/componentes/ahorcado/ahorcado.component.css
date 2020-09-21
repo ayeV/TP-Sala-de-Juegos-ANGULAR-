@@ -1,0 +1,14 @@
+.letter {
+	width: 5vw;
+	height:5vw;
+	border-bottom: 3px solid #620a85;
+	background-color: #bc7bf1;
+	border-radius: 8px;
+
+	font-size: 5vw;
+	color: #c720bf;
+	display: inline-block;
+	margin-left: 2vw;
+    
+	opacity:100;
+}

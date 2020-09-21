@@ -41,10 +41,7 @@
         </mat-accordion>
         <mat-action-list>
           <button mat-list-item>
-            <span>Mis datos</span>
-          </button>
-          <button mat-list-item>
-            <span [routerLink]="['/Login']" routerLinkActive="router-link-active" >Salir</span>
+            <span (click)="salir()" >Salir</span>
           </button>
         </mat-action-list>
       </div>

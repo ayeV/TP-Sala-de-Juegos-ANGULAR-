@@ -1,1 +1,48 @@
-<p>ahorcado works!</p>
+<body>
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+
+        <div fxLayout="row" >
+            <div *ngFor="let letter of ahorcado.letters">
+                <div fxLayoutAlign="center center" class="letter fadeIn" *ngIf="letter.estaEncontrada">
+                    {{letter.letter}}
+                </div>
+                <div fxLayoutAlign="center center" class="letter fadeIn" *ngIf="!letter.estaEncontrada">
+                    __
+                </div>
+            </div>
+
+        </div>
+
+        <div *ngFor="let row of rowsOfKeys" class="keyboard center-items">
+            <span *ngFor="let key of row">
+                <ng-container>
+                    <button mat-fab color="accent" (click)="verificar(key)" [disabled] = "!estaJugando">
+                        {{ key }}
+                    </button>
+                </ng-container>
+            </span>
+        </div>
+
+
+        <div fxLayoutAlign="center center">
+
+            <button mat-raised-button color="primary" (click)="newGame()">Nuevo Juego</button>
+
+
+        </div>
+
+        <div>
+            <p style="font-size: 5vw; color: rgb(236, 235, 241);">{{message}}</p>
+
+        </div>
+
+
+        <div style="background-color: lavender;" *ngIf="!won">
+            <img [src]="dibujo" style="width: 500px; height: 500px;">
+        </div>
+ 
+    </div>
+
+
+
+</body>

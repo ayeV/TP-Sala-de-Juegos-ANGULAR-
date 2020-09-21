@@ -1,40 +1,19 @@
   
   
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>                        
-        </button>
-        <a class="navbar-brand" href="./">Sala De Juegos</a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="./QuienSoy#quien">Quien soy?</a></li>
-          <li><a href="/TP_LAV4_2017/QuienSoy#que">Ques es</a></li>
-          <li><a href="./QuienSoy#donde">Donde</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
+<app-menu></app-menu>
   <!-- First Container -->
   <div id ="quien"class="container-fluid bg-1 text-center">
-    <h3 class="margin">Quién Soy?</h3>
     <img src="./assets/imagenes/quiensoy.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
-    <h3>Soy Un alumno de la UTN FRA</h3>
+    <h3 style="color: rebeccapurple;">Soy Ayelen Valdez</h3>
   </div>
   
   <!-- Second Container -->
   <div id ="que" class="container-fluid bg-2 text-center">
-    <h3 class="margin">Esto es un trabajo práctico</h3>
-    <p>Cada universidad, cada facultad, cada carrera y obviamente cada materia en particular tiene estrategias didácticas y formas de evaluación diferentes. A pesar de que en muchos casos las universidades intentan estandarizar la forma de dictar clase para generar un orden en las planificaciones cuatrimestre a cuatrimestre, las formas de evaluación son elementales tanto para las instituciones y profesores como para los alumnos. A través de la evaluación formativa el educador busca información en el alumno para lograr comprender cómo se está
-      produciendo el proceso de aprendizaje y poder reajustar los objetivos pedagógicos. Y para el alumno es una muestra del progreso que está logrando y si puede aplicar, materializar y darle visibilidad a la comprensión del tema. Según Black y William (1998), la evaluación formativa, ayuda a que los estudiantes sean independientes a la hora del aprendizaje, es decir, se presenta como receptor, autorregulador y centro de esa misma evaluación. </p>
-    <a href="#" class="btn btn-default btn-lg">
-      <span class="glyphicon glyphicon-file"></span> Descargar PDF
-    </a>
+    <h3 class="margin">Juego propio: Ahorcado</h3>
+    <p>Se le presenta al usuario un teclado compuesto por botones, al clickear uno, si la letra esta contenida en la palabra secreta, se adiciona la misma, si la letra no esta contenida entonces
+      se dibuja una parte del ahorcado y asi sucesivamente. Cuando el dibujo del ahorcado esta completo el usuario perdió el juego y no puede volver a ingresar una letra.
+    Si el usuario logró ganar entonces se le suman 10 puntos en la base de datos. </p>
+   
   </div>
   
   <!-- Third Container (Grid) -->

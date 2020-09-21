@@ -79,6 +79,10 @@ export class LoginComponent implements OnInit {
 
   }
 
+  LlenarInput(){
+    this.usuario.email = "ayelenvaldez07@gmail.com";
+    this.usuario.clave = "123456";
+  }
 
 
 

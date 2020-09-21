@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quien-soy.component.css']
 })
 export class QuienSoyComponent implements OnInit {
+  public opened = false;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  toggleSideBar() {
+
+    this.opened = !this.opened;
+  }
 }

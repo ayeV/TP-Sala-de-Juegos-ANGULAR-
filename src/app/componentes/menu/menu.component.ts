@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { AuthenticationService } from 'app/servicios/authentication-service';
 
 @Component({
   selector: 'app-menu',
@@ -9,7 +10,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class MenuComponent implements OnInit {
   opened = false;
 
-  constructor(private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute, private auth: AuthenticationService,
     private router: Router) { }
 
   ngOnInit() {
@@ -44,6 +45,12 @@ export class MenuComponent implements OnInit {
   toggleSideBar() {
 
     this.opened = !this.opened;
+  }
+
+  salir()
+  {
+    this.auth.SignOut();
+    this.router.navigate(['/Login']);
   }
 
 
